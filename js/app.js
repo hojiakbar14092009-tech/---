@@ -41,7 +41,8 @@
     if(!state.q) return true;
     return norm([f.nom,f.osimliklar,f.gul,f.barg,f.topgul,f.meva,f.rang,f.joy,f.oxshash,f.farq,f.soni,f.tabobat,f.belgi].join(" ")).indexOf(state.q) > -1;
   }
-  var EXTRA = window.FAMILY_EXTRA || function(){ return ""; };
+  var SPEC = {ranodoshlar:"Olma",karamdoshlar:"Xantal",shoradoshlar:"Lavlagi",gulxayridoshlar:"G‘o‘za",burchoqdoshlar:"No‘xat",ituzumdoshlar:"Pomidor",tokdoshlar:"Tok",qovoqdoshlar:"Oshqovoq",qoqiotdoshlar:"Kungaboqar",loladoshlar:"Lola",piyozdoshlar:"Piyoz",bugdoydoshlar:"Bug‘doy"};
+  function EXTRA(f){ return '<button class="thumb" data-3d="'+f.id+'" aria-label="'+esc(f.nom)+' — 3D modelni ochish"><img src="thumbs/'+f.id+'.webp" alt="" loading="lazy" width="84" height="84"><span><b>3D ko‘rish</b>'+SPEC[f.id]+' · 360°</span></button>'; }
 
   $("thead").innerHTML = "<tr><th><span>Oila nomi</span></th>" + C.map(function(c){ return "<th><span>"+icon(c.key)+c.label+"</span></th>"; }).join("") + "</tr>";
 
