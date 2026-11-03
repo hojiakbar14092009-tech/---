@@ -11,9 +11,7 @@
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-title" content="Botanika">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/inter-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
@@ -43,7 +41,7 @@
     <p class="eyebrow">6-sinf · Botanika · 47–58-§</p>
     <h1>O‘simlik oilalari <em>atlasi</em></h1>
     <p class="lead">Darslikdagi 12 ta oila bitta jadvalda: guli, bargi, mevasi, qayerda o‘sishi, o‘xshash va farqli tomonlari, tabobatdagi o‘rni.</p>
-    <div class="stats"><span class="stat"><b>12</b>oila</span><span class="stat"><b>10</b>ikki urug‘pallali</span><span class="stat"><b>2</b>bir urug‘pallali</span></div>
+    <div class="stats"><span class="stat"><b>12</b>oila</span><span class="stat"><b>10</b>ikki urug‘pallali</span><span class="stat"><b>2</b>bir urug‘pallali</span><span class="stat off" id="offl" role="status" aria-live="polite"></span></div>
   </div>
 </section>
 
@@ -83,6 +81,22 @@
 <script src="js/app.js"></script>
 <script type="importmap">{"imports":{"three":"./vendor/three.module.min.js","three/addons/":"./vendor/addons/"}}</script>
 <script type="module" src="js/viewer.js"></script>
-<script>if("serviceWorker" in navigator && location.protocol.startsWith("http")) addEventListener("load", function(){ navigator.serviceWorker.register("sw.js"); });</script>
+<script>
+(function(){
+  var el = document.getElementById("offl");
+  function show(t, ok){ el.textContent = t; el.className = "stat " + (ok ? "ok" : "off"); }
+  if(!("serviceWorker" in navigator) || !location.protocol.startsWith("http")){ return; }
+  show("Internetsiz ishlash: tayyorlanmoqda…", false);
+  addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){ show("Internetsiz ishlash mavjud emas", false); }); });
+  function check(){
+    caches.keys().then(function(ks){
+      var k = ks.filter(function(x){ return x.indexOf("atlas-") === 0; })[0]; if(!k) return setTimeout(check, 1500);
+      caches.open(k).then(function(c){ return Promise.all(["models/47_Ranodoshlar.glb","models/58_Bugdoydoshlar.glb","index.html"].map(function(u){ return c.match(u); })); })
+        .then(function(r){ r.every(Boolean) ? show("✓ Internetsiz ishlashga tayyor", true) : setTimeout(check, 1500); });
+    });
+  }
+  check();
+})();
+</script>
 </body>
 </html>
