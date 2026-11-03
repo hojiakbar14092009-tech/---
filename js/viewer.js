@@ -97,7 +97,7 @@ async function load(id) {
     if (my !== loadId) return;
     current = gltf.scene; scene.add(current); home = null; fit(true);
   } catch (e) {
-    $("#v3d-note").textContent = "Model yuklanmadi. Internet aloqasini tekshirib, qayta oching.";
+    $("#v3d-note").textContent = navigator.onLine === false ? "Bu model hali saqlanmagan. Internetga ulanib bir marta oching — keyin internetsiz ham ochiladi." : "Model yuklanmadi. Sahifani yangilab, qayta urinib ko‘ring.";
   } finally { if (my === loadId) $("#v3d-load").hidden = true; }
 }
 

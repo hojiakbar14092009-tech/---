@@ -22,4 +22,4 @@ Barcha ma’lumotlar `data/families.js` faylida. Manba — darslikning 112–138
 - [x] 1-bosqich — taqqoslash jadvali
 - [x] 2-bosqich — botanik dizayn
 - [x] 3-bosqich — 3D modellar (12 ta GLB) va 360° ko‘rish
-- [ ] 4-bosqich — PWA (oflayn ishlash)
+- [x] 4-bosqich — PWA: telefonga o‘rnatish, internetsiz ishlash (ochilgan 3D modellar ham saqlanadi)

@@ -1,0 +1,17 @@
+{
+  "name": "Botanika Atlasi — o‘simlik oilalari",
+  "short_name": "Botanika",
+  "description": "6-sinf Botanika: 12 ta o‘simlik oilasining taqqoslash jadvali va 3D modellari",
+  "lang": "uz",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#F5F1E6",
+  "theme_color": "#2F5D43",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
