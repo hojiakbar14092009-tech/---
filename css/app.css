@@ -156,5 +156,6 @@ html.v3d-open,html.v3d-open body{overflow:hidden}
 .stat.off{color:var(--muted)}
 .stat:empty{display:none}
 
-.netbar{position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:90;background:#1F3A2B;color:#fff;font-size:.85rem;padding:9px 16px;border-radius:999px;box-shadow:0 8px 24px -8px rgba(0,0,0,.4);max-width:calc(100% - 24px);text-align:center}
+.netbar{position:fixed;left:50%;top:max(10px,env(safe-area-inset-top));transform:translateX(-50%);z-index:90;background:rgba(31,58,43,.92);color:#fff;font-size:.78rem;line-height:1.2;padding:6px 12px;border-radius:999px;white-space:nowrap;pointer-events:none;opacity:1;transition:opacity .4s}
+.netbar.fade{opacity:0}
 .netbar[hidden]{display:none}

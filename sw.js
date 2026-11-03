@@ -1,5 +1,5 @@
 // Avtomatik yaratilgan (tools/make-sw.py). Qo'lda o'zgartirmang.
-const VERSION = "1072361cce", CACHE = "atlas-" + VERSION;
+const VERSION = "f12545c3ab", CACHE = "atlas-" + VERSION;
 const CORE = [
  "./",
  "css/app.css",
