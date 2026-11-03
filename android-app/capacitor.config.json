@@ -1,0 +1,7 @@
+{
+  "appId": "uz.botanika.atlas",
+  "appName": "Botanika Atlasi",
+  "webDir": "www",
+  "server": { "androidScheme": "https" },
+  "android": { "allowMixedContent": false }
+}

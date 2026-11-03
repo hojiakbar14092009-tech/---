@@ -6,6 +6,7 @@
 <title>Botanika Atlasi</title>
 <meta name="description" content="6-sinf Botanika: 12 ta o‘simlik oilasining taqqoslash jadvali va 3D modellari (47–58-§)">
 <meta name="theme-color" content="#E9EFDF">
+<!--APP-FLAG-->
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon-192.png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
@@ -72,6 +73,7 @@
   </section>
 </main>
 
+<div id="net" class="netbar" role="status" hidden>Internet yo‘q. Ilova saqlangan nusxadan ishlayapti.</div>
 <footer class="wrap">
   <svg viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 12h112"/><path d="M60 12c-6-8-14-9-20-6 6 6 14 7 20 6Zm0 0c6-8 14-9 20-6-6 6-14 7-20 6Z" fill="currentColor" opacity=".35"/></svg>
   Manba: Biologiya (Botanika), 6-sinf darsligi, 112–138-betlar. Darslikda yo‘q qo‘shimcha ma’lumot alohida belgilangan.
@@ -83,8 +85,11 @@
 <script type="module" src="js/viewer.js"></script>
 <script>
 (function(){
-  var el = document.getElementById("offl");
+  var el = document.getElementById("offl"), bar = document.getElementById("net");
   function show(t, ok){ el.textContent = t; el.className = "stat " + (ok ? "ok" : "off"); }
+  function net(){ var off = navigator.onLine === false; bar.hidden = !off; document.documentElement.classList.toggle("is-offline", off); }
+  addEventListener("online", net); addEventListener("offline", net); net();
+  if(window.IS_APP){ show("✓ Ilova: internetsiz ishlaydi", true); return; }   // ilova ichida hamma fayl bor
   if(!("serviceWorker" in navigator) || !location.protocol.startsWith("http")){ return; }
   show("Internetsiz ishlash: tayyorlanmoqda…", false);
   addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){ show("Internetsiz ishlash mavjud emas", false); }); });

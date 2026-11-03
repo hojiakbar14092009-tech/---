@@ -155,3 +155,6 @@ html.v3d-open,html.v3d-open body{overflow:hidden}
 .stat.ok{background:var(--green2);color:var(--green);border-color:#c9dcc4;font-weight:600}
 .stat.off{color:var(--muted)}
 .stat:empty{display:none}
+
+.netbar{position:fixed;left:50%;bottom:max(14px,env(safe-area-inset-bottom));transform:translateX(-50%);z-index:90;background:#1F3A2B;color:#fff;font-size:.85rem;padding:9px 16px;border-radius:999px;box-shadow:0 8px 24px -8px rgba(0,0,0,.4);max-width:calc(100% - 24px);text-align:center}
+.netbar[hidden]{display:none}

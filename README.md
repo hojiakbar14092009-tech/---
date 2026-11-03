@@ -15,7 +15,11 @@ Oila nomi · Oilaga kiruvchi o‘simliklar · Guli, bargi va to‘pguli (+ mevas
 - Chop etishga mos
 - Har bir oila uchun 3D model: barmoq bilan 360° aylantirish, yaqinlashtirish, tugmalar bilan boshqarish (`models/`, three.js `vendor/` ichida)
 
-## Internetsiz ishlash
+## Android ilova (APK)
+`android-app/` papkasida Capacitor loyihasi bor: butun sayt (12 ta 3D model, shriftlar) ilova ichiga joylanadi, shuning uchun birinchi ochilishdayoq internetsiz ishlaydi.
+APK'ni GitHub o'zi yig'adi (`.github/workflows/android.yml`): push qilinganda yoki **Actions → Android APK → Run workflow** bosilganda. Tayyor fayl **Releases → Botanika Atlasi (Android)** bo‘limida chiqadi. Telefonga yuklab olib o‘rnating ("noma’lum manbadan o‘rnatish"ga ruxsat bering).
+
+## Internetsiz ishlash (sayt)
 Sayt birinchi marta ochilganda (internet bilan) hamma narsa, jumladan 12 ta 3D model va shriftlar, qurilmaga saqlanadi. Keyin internetsiz ham to‘liq ishlaydi; tayyor bo‘lganda sahifada "✓ Internetsiz ishlashga tayyor" belgisi chiqadi. Fayllarni o‘zgartirgach `python3 tools/make-sw.py` ni ishga tushiring (sw.js yangilanadi).
 
 ## 3D modellar

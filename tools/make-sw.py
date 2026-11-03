@@ -2,7 +2,7 @@
 """sw.js ni avtomatik yaratadi: barcha fayllar oldindan keshlanadi. Fayl o'zgarsa versiya o'zgaradi."""
 import os, hashlib, json
 R = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SKIP = {".git", "tools", "node_modules"}
+SKIP = {".git", ".github", "tools", "node_modules", "android-app"}
 SKIPF = {"sw.js", "vercel.json", "README.md", ".gitignore"}
 files = []
 for d, ds, fs in os.walk(R):
