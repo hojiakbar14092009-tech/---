@@ -1,5 +1,5 @@
 // Avtomatik yaratilgan (tools/make-sw.py). Qo'lda o'zgartirmang.
-const VERSION = "02de9e5200", CACHE = "atlas-" + VERSION;
+const VERSION = "1072361cce", CACHE = "atlas-" + VERSION;
 const CORE = [
  "./",
  "css/app.css",
@@ -21,6 +21,7 @@ const CORE = [
  "icons/apple-touch-icon.png",
  "icons/icon-192.png",
  "icons/icon-512.png",
+ "icons/icon.svg",
  "icons/maskable-512.png",
  "index.html",
  "js/app.js",

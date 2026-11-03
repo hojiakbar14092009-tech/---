@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><defs>
+<radialGradient id="bgfull" cx="30%" cy="22%" r="95%"><stop offset="0" stop-color="#2E6B4A"/><stop offset=".55" stop-color="#1E4630"/><stop offset="1" stop-color="#112A1C"/></radialGradient>
+<radialGradient id="glowfull" cx="50%" cy="46%" r="50%"><stop offset="0" stop-color="#9FD6A8" stop-opacity=".34"/><stop offset="1" stop-color="#9FD6A8" stop-opacity="0"/></radialGradient>
+<linearGradient id="lffull" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBF7E8"/><stop offset="1" stop-color="#CFE2BF"/></linearGradient>
+<linearGradient id="gdfull" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#C69B3E"/><stop offset="1" stop-color="#F3D98E"/></linearGradient>
+<filter id="shfull" x="-30%" y="-30%" width="160%" height="170%"><feGaussianBlur in="SourceAlpha" stdDeviation="22"/><feOffset dy="26"/><feComponentTransfer><feFuncA type="linear" slope=".5"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs><rect width="1024" height="1024" fill="url(#bgfull)"/><rect width="1024" height="1024" fill="url(#glowfull)"/><g transform="translate(512 512) scale(0.8) rotate(32) translate(-512 -512)">
+<g filter="url(#shfull)"><path d="M512 196 C668 292 752 466 706 622 C674 738 594 802 512 816 C430 802 350 738 318 622 C272 466 356 292 512 196 Z" fill="url(#lffull)"/></g>
+<path d="M512 196 C356 292 272 466 318 622 C350 738 430 802 512 816 C506 640 508 380 512 196 Z" fill="#1E4630" opacity=".10"/>
+<path d="M512 196 C668 292 752 466 706 622 C674 738 594 802 512 816 C430 802 350 738 318 622 C272 466 356 292 512 196 Z" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="3"/>
+<g fill="none" stroke="url(#gdfull)" stroke-linecap="round"><path d="M512 826 C520 680 506 430 512 232" stroke-width="15"/><path d="M512 826 C506 874 478 904 430 930" stroke-width="15"/><g stroke-width="8"><path d="M514 690 C580 664 636 618 676 556"/><path d="M512 586 C568 560 612 520 644 468"/><path d="M510 486 C548 466 578 438 598 402"/><path d="M510 396 C530 384 548 366 558 340"/><path d="M514 690 C448 664 392 618 352 556"/><path d="M512 586 C456 560 412 520 380 468"/><path d="M510 486 C472 466 442 438 422 402"/><path d="M510 396 C490 384 472 366 462 340"/></g></g>
+</g></svg>

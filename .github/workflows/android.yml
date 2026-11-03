@@ -30,7 +30,7 @@ jobs:
       - name: Ikonka va splash (xato bo'lsa davom etadi)
         working-directory: android-app
         continue-on-error: true
-        run: npx --yes @capacitor/assets generate --android --iconBackgroundColor '#2F5D43' --splashBackgroundColor '#F5F1E6'
+        run: npx --yes @capacitor/assets generate --android --iconBackgroundColor '#1E4630' --splashBackgroundColor '#1E4630'
 
       - name: APK yig'ish
         working-directory: android-app/android
