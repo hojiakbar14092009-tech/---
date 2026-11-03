@@ -3,189 +3,78 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>O‘simlik oilalari jadvali</title>
-<meta name="description" content="6-sinf Botanika: 12 ta o‘simlik oilasining taqqoslash jadvali (47–58-§)">
-<meta name="theme-color" content="#F8FAF7">
+<title>Botanika Atlasi</title>
+<meta name="description" content="6-sinf Botanika: 12 ta o‘simlik oilasining taqqoslash jadvali va 3D modellari (47–58-§)">
+<meta name="theme-color" content="#E9EFDF">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#F8FAF7;--surface:#fff;--soft:#EAF3E8;--accent:#D9EACF;--primary:#386B4B;--text:#24332A;--muted:#5E6E63;--border:#DFE9E0;--mono:#F3E9D9;--monoText:#6B4E1F;--r:14px}
-*{box-sizing:border-box}
-html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.55 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-.wrap{max-width:1440px;margin:0 auto;padding:0 16px}
-header{padding:28px 0 8px}
-h1{font-size:clamp(1.4rem,4.5vw,2rem);margin:0 0 4px;letter-spacing:-.01em}
-.sub{color:var(--muted);margin:0}
-.bar{position:sticky;top:0;z-index:20;background:var(--bg);padding:12px 0;border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-.search{flex:1 1 220px;min-height:44px;border:1px solid var(--border);border-radius:12px;padding:0 14px;font:inherit;background:var(--surface);color:var(--text)}
-.search:focus,button:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
-.seg{display:flex;background:var(--soft);border-radius:12px;padding:3px;gap:2px;flex-wrap:wrap}
-.seg button{min-height:40px;border:0;background:none;border-radius:10px;padding:0 12px;font:inherit;font-size:.9rem;color:var(--text);cursor:pointer}
-.seg button[aria-pressed=true]{background:var(--surface);color:var(--primary);font-weight:600;box-shadow:0 1px 2px rgba(0,0,0,.06)}
-.count{color:var(--muted);font-size:.9rem;margin:12px 0}
-.tag{display:inline-block;font-size:.75rem;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--soft);color:var(--primary);white-space:nowrap}
-.tag.mono{background:var(--mono);color:var(--monoText)}
-.key{display:block;margin-top:6px;font-size:.88rem;color:var(--primary);font-weight:500}
-.lbl{font-weight:600;color:var(--text)}
-.note{font-size:.8rem;color:var(--muted);font-style:italic}
-mark{background:#FFF1B8;color:inherit;border-radius:3px;padding:0 1px}
-/* Jadval (planshet va kompyuter) */
-.tablebox{overflow:auto;border:1px solid var(--border);border-radius:var(--r);background:var(--surface);max-height:calc(100vh - 150px)}
-table{border-collapse:separate;border-spacing:0;width:100%;min-width:1500px;font-size:.92rem}
-th,td{padding:12px 14px;vertical-align:top;border-bottom:1px solid var(--border);border-right:1px solid var(--border);text-align:left}
-thead th{position:sticky;top:0;z-index:2;background:var(--soft);font-size:.82rem;text-transform:uppercase;letter-spacing:.03em;color:var(--primary)}
-tbody th{position:sticky;left:0;z-index:1;background:var(--surface);min-width:190px;max-width:210px}
-thead th:first-child{left:0;z-index:3}
-tbody tr:nth-child(even) td{background:#FBFDFB}
-td p{margin:0 0 6px}td p:last-child{margin:0}
-.fam{font-size:1rem;font-weight:700;display:block}
-.par{color:var(--muted);font-weight:500;font-size:.85rem}
-/* Kartochkalar (telefon) */
-.cards{display:none;gap:12px}
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:16px}
-.card h2{font-size:1.15rem;margin:0 0 4px;display:flex;justify-content:space-between;gap:8px;align-items:baseline}
-.card details{border-top:1px solid var(--border);margin-top:10px;padding-top:4px}
-.card summary{min-height:44px;display:flex;align-items:center;justify-content:space-between;font-weight:600;cursor:pointer;list-style:none}
-.card summary::-webkit-details-marker{display:none}
-.card summary::after{content:"+";font-size:1.3rem;color:var(--primary);font-weight:400}
-.card details[open] summary::after{content:"–"}
-.card details p{margin:0 0 8px}
-.plants{margin:8px 0 0;color:var(--muted)}
-/* Taqqoslash */
-#cmp{display:none}
-.pick{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-select{min-height:44px;width:100%;border:1px solid var(--border);border-radius:12px;padding:0 10px;font:inherit;background:var(--surface);color:var(--text)}
-.row{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);margin-bottom:10px;overflow:hidden}
-.row h3{margin:0;padding:10px 14px;font-size:.85rem;text-transform:uppercase;letter-spacing:.03em;color:var(--primary);background:var(--soft)}
-.row .two{display:grid;grid-template-columns:1fr 1fr}
-.row .two div{padding:12px 14px;font-size:.93rem}
-.row .two div+div{border-left:1px solid var(--border)}
-.row .two b{display:block;font-size:.78rem;color:var(--muted);margin-bottom:4px}
-footer{color:var(--muted);font-size:.85rem;padding:28px 0 40px}
-.empty{padding:32px;text-align:center;color:var(--muted)}
-@media (max-width:820px){
-  .bar{position:static}
-  .tablebox{display:none}
-  .cards{display:grid}
-}
-@media (min-width:600px) and (max-width:820px){.cards{grid-template-columns:1fr 1fr}}
-@media (max-width:360px){.row .two{grid-template-columns:1fr}.row .two div+div{border-left:0;border-top:1px solid var(--border)}}
-@media print{.bar,.cards,#cmp{display:none!important}.tablebox{display:block!important;max-height:none;overflow:visible;border:0}table{min-width:0;font-size:9px}thead th,tbody th{position:static}}
-@media (prefers-reduced-motion:reduce){*{transition:none!important}}
-</style>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/app.css">
 </head>
 <body>
-<div class="wrap">
-  <header>
-    <h1>O‘simlik oilalari jadvali</h1>
-    <p class="sub">6-sinf Botanika darsligi, 47–58-§. 12 ta oila — bir qarashda.</p>
-  </header>
-
-  <div class="bar">
-    <input class="search" id="q" type="search" placeholder="Qidirish: oila yoki o‘simlik (masalan, olma)" aria-label="Qidirish">
-    <div class="seg" role="group" aria-label="Sinf bo‘yicha">
-      <button data-f="all" aria-pressed="true">Hammasi</button>
-      <button data-f="Ikki urug‘pallali" aria-pressed="false">Ikki urug‘pallali</button>
-      <button data-f="Bir urug‘pallali" aria-pressed="false">Bir urug‘pallali</button>
-    </div>
-    <div class="seg" role="group" aria-label="Ko‘rinish">
-      <button data-v="list" aria-pressed="true">Jadval</button>
-      <button data-v="cmp" aria-pressed="false">Taqqoslash</button>
-    </div>
+<section class="hero">
+  <svg class="sprig" viewBox="0 0 400 420" aria-hidden="true">
+    <g fill="none" stroke="#2F5D43" stroke-width="2.2" stroke-linecap="round">
+      <path d="M380 410 C330 330 300 250 300 170 C300 110 320 60 350 20"/>
+      <path d="M302 250 C250 240 210 210 180 160"/><path d="M300 170 C260 150 240 110 238 70"/>
+      <path d="M318 320 C280 330 240 320 205 295"/>
+    </g>
+    <g fill="#6E9A6A" opacity=".85">
+      <path d="M180 160 C150 150 128 120 130 92 C160 100 182 128 180 160Z"/>
+      <path d="M220 200 C190 205 160 190 148 166 C178 160 208 175 220 200Z"/>
+      <path d="M238 70 C220 50 220 22 236 4 C254 24 254 52 238 70Z"/>
+      <path d="M262 128 C238 122 222 100 222 80 C246 86 262 106 262 128Z"/>
+      <path d="M205 295 C176 300 150 286 140 262 C168 258 194 270 205 295Z"/>
+      <path d="M255 318 C232 336 202 338 182 326 C200 306 232 304 255 318Z"/>
+    </g>
+    <g fill="#A9C79A" opacity=".9">
+      <path d="M350 20 C368 30 376 52 368 72 C350 62 342 40 350 20Z"/>
+      <path d="M322 110 C344 104 366 114 374 134 C352 140 330 130 322 110Z"/>
+      <path d="M322 210 C346 200 372 208 384 228 C360 238 334 230 322 210Z"/>
+    </g>
+    <g fill="#E7B9A6"><circle cx="196" cy="150" r="6"/><circle cx="252" cy="62" r="5"/><circle cx="168" cy="282" r="5"/></g>
+  </svg>
+  <div class="wrap">
+    <p class="eyebrow">6-sinf · Botanika · 47–58-§</p>
+    <h1>O‘simlik oilalari <em>atlasi</em></h1>
+    <p class="lead">Darslikdagi 12 ta oila bitta jadvalda: guli, bargi, mevasi, qayerda o‘sishi, o‘xshash va farqli tomonlari, tabobatdagi o‘rni.</p>
+    <div class="stats"><span class="stat"><b>12</b>oila</span><span class="stat"><b>10</b>ikki urug‘pallali</span><span class="stat"><b>2</b>bir urug‘pallali</span></div>
   </div>
+</section>
 
-  <main>
-    <div id="list">
-      <p class="count" id="count"></p>
-      <div class="tablebox"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div>
-      <div class="cards" id="cards"></div>
-    </div>
-    <section id="cmp" aria-label="Ikki oilani taqqoslash">
-      <p class="count">Ikki oilani tanlang — belgilari yonma-yon chiqadi.</p>
-      <div class="pick"><select id="a" aria-label="Birinchi oila"></select><select id="b" aria-label="Ikkinchi oila"></select></div>
-      <div id="rows"></div>
-    </section>
-  </main>
+<div class="bar"><div class="wrap">
+  <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+    <input id="q" type="search" placeholder="Oila yoki o‘simlik nomi (masalan, olma)" aria-label="Qidirish"></label>
+  <div class="seg" role="group" aria-label="Sinf bo‘yicha" id="segF">
+    <button data-f="all" aria-pressed="true">Hammasi</button>
+    <button data-f="Ikki urug‘pallali" aria-pressed="false">Ikki urug‘pallali</button>
+    <button data-f="Bir urug‘pallali" aria-pressed="false">Bir urug‘pallali</button>
+  </div>
+  <div class="seg" role="group" aria-label="Ko‘rinish">
+    <button data-v="list" aria-pressed="true">Jadval</button>
+    <button data-v="cmp" aria-pressed="false">Taqqoslash</button>
+  </div>
+</div></div>
 
-  <footer>Manba: Biologiya (Botanika), 6-sinf darsligi, 112–138-betlar. Ma’lumotlar darslik matni asosida qisqartirib yozildi; darslikdan tashqari qo‘shimcha ma’lumot alohida belgilangan.</footer>
-</div>
+<main class="wrap">
+  <div id="list">
+    <p class="count" id="count"></p>
+    <div class="tablebox"><table><thead id="thead"></thead><tbody id="tbody"></tbody></table></div>
+    <div class="cards" id="cards"></div>
+  </div>
+  <section id="cmp" aria-label="Ikki oilani taqqoslash">
+    <p class="count">Ikki oilani tanlang — belgilari yonma-yon chiqadi</p>
+    <div class="pick"><select id="a" aria-label="Birinchi oila"></select><span class="vs">va</span><select id="b" aria-label="Ikkinchi oila"></select></div>
+    <div id="rows"></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <svg viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 12h112"/><path d="M60 12c-6-8-14-9-20-6 6 6 14 7 20 6Zm0 0c6-8 14-9 20-6-6 6-14 7-20 6Z" fill="currentColor" opacity=".35"/></svg>
+  Manba: Biologiya (Botanika), 6-sinf darsligi, 112–138-betlar. Darslikda yo‘q qo‘shimcha ma’lumot alohida belgilangan.
+</footer>
 
 <script src="data/families.js"></script>
-<script>
-(function(){
-  var F = window.FAMILIES, C = window.COLUMNS;
-  var state = { q:"", f:"all", v:"list" };
-  var $ = function(id){ return document.getElementById(id); };
-
-  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
-  function norm(s){ return String(s).toLowerCase().replace(/[‘’ʻʼ`']/g,"'"); }
-  function hl(s){
-    s = esc(s); if(!state.q) return s;
-    var q = state.q, out = "", low = norm(s), i = 0, j;
-    while((j = low.indexOf(q, i)) > -1){ out += s.slice(i,j) + "<mark>" + s.slice(j, j+q.length) + "</mark>"; i = j + q.length; }
-    return out + s.slice(i);
-  }
-  function tag(f){ return '<span class="tag'+(f.sinf[0]==="B"?" mono":"")+'">'+f.sinf+'</span>'; }
-  function cell(f, k){
-    if(k === "gbt") return '<p><span class="lbl">Guli:</span> '+hl(f.gul)+'</p><p><span class="lbl">Bargi:</span> '+hl(f.barg)+'</p><p><span class="lbl">To‘pguli:</span> '+hl(f.topgul)+'</p><p><span class="lbl">Mevasi:</span> '+hl(f.meva)+'</p>';
-    var t = '<p>'+hl(f[k])+'</p>';
-    if(k === "tabobat" && f.tabobatQoshimcha) t += '<p class="note">Qo‘shimcha ma’lumot (darslikda yo‘q)</p>';
-    return t;
-  }
-  function match(f){
-    if(state.f !== "all" && f.sinf !== state.f) return false;
-    if(!state.q) return true;
-    return norm([f.nom,f.osimliklar,f.gul,f.barg,f.topgul,f.meva,f.rang,f.joy,f.oxshash,f.farq,f.soni,f.tabobat,f.belgi].join(" ")).indexOf(state.q) > -1;
-  }
-
-  $("thead").innerHTML = "<tr><th>Oila nomi</th>" + C.map(function(c){ return "<th>"+c.label+"</th>"; }).join("") + "</tr>";
-
-  function renderList(){
-    var list = F.filter(match);
-    $("count").textContent = list.length === F.length ? "12 ta oila" : list.length + " ta oila topildi";
-    if(!list.length){
-      $("tbody").innerHTML = '<tr><td colspan="9" class="empty">Hech narsa topilmadi. Boshqa so‘z bilan qidirib ko‘ring.</td></tr>';
-      $("cards").innerHTML = '<div class="empty">Hech narsa topilmadi. Boshqa so‘z bilan qidirib ko‘ring.</div>';
-      return;
-    }
-    $("tbody").innerHTML = list.map(function(f){
-      return '<tr id="t-'+f.id+'"><th scope="row"><span class="par">'+f.par+'</span><span class="fam">'+hl(f.nom)+'</span>'+tag(f)+'<span class="key">'+esc(f.belgi)+'</span></th>' +
-        C.map(function(c){ return "<td>"+cell(f, c.key)+"</td>"; }).join("") + "</tr>";
-    }).join("");
-    var open = !!state.q;
-    $("cards").innerHTML = list.map(function(f){
-      return '<article class="card"><h2><span>'+hl(f.nom)+'</span><span class="par">'+f.par+'</span></h2>'+tag(f)+
-        '<span class="key">'+esc(f.belgi)+'</span><p class="plants">'+hl(f.osimliklar)+'</p>'+
-        C.slice(1).map(function(c){ return '<details'+(open?" open":"")+'><summary>'+c.label+'</summary>'+cell(f, c.key)+'</details>'; }).join("") +
-        '</article>';
-    }).join("");
-  }
-
-  var opts = F.map(function(f,i){ return '<option value="'+i+'">'+f.par+' '+f.nom+'</option>'; }).join("");
-  $("a").innerHTML = opts; $("b").innerHTML = opts; $("a").value = "10"; $("b").value = "11";
-  function renderCmp(){
-    var A = F[$("a").value], B = F[$("b").value];
-    var rows = [{key:"belgi",label:"Asosiy belgisi"},{key:"sinf",label:"Sinfi"}].concat(C);
-    $("rows").innerHTML = rows.map(function(c){
-      return '<div class="row"><h3>'+c.label+'</h3><div class="two"><div><b>'+esc(A.nom)+'</b>'+cell(A,c.key)+'</div><div><b>'+esc(B.nom)+'</b>'+cell(B,c.key)+'</div></div></div>';
-    }).join("");
-  }
-
-  $("q").addEventListener("input", function(e){ state.q = norm(e.target.value.trim()); renderList(); });
-  document.querySelectorAll("[data-f]").forEach(function(b){ b.addEventListener("click", function(){
-    state.f = b.dataset.f; document.querySelectorAll("[data-f]").forEach(function(x){ x.setAttribute("aria-pressed", x===b); }); renderList();
-  });});
-  document.querySelectorAll("[data-v]").forEach(function(b){ b.addEventListener("click", function(){
-    state.v = b.dataset.v; document.querySelectorAll("[data-v]").forEach(function(x){ x.setAttribute("aria-pressed", x===b); });
-    $("list").style.display = state.v==="list" ? "" : "none"; $("cmp").style.display = state.v==="cmp" ? "block" : "none";
-    document.querySelector(".bar .search").style.display = state.v==="list" ? "" : "none";
-    document.querySelector('[aria-label="Sinf bo‘yicha"]').style.display = state.v==="list" ? "" : "none";
-    if(state.v==="cmp") renderCmp();
-  });});
-  $("a").addEventListener("change", renderCmp); $("b").addEventListener("change", renderCmp);
-  renderList();
-})();
-</script>
+<script src="js/app.js"></script>
 </body>
 </html>
