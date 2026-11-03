@@ -1,11 +1,12 @@
 import * as THREE from "three";
 import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { MeshoptDecoder } from "three/addons/libs/meshopt_decoder.module.js";
 
 const FILES = {ranodoshlar:"47_Ranodoshlar",karamdoshlar:"48_Karamdoshlar",shoradoshlar:"49_Shoradoshlar",gulxayridoshlar:"50_Gulxayridoshlar",
   burchoqdoshlar:"51_Burchoqdoshlar",ituzumdoshlar:"52_Ituzumdoshlar",tokdoshlar:"53_Tokdoshlar",qovoqdoshlar:"54_Qovoqdoshlar",
   qoqiotdoshlar:"55_Qoqiotdoshlar",loladoshlar:"56_Loladoshlar",piyozdoshlar:"57_Piyozdoshlar",bugdoydoshlar:"58_Bugdoydoshlar"};
-const SPECIMEN = {ranodoshlar:"Olma",karamdoshlar:"Xantal",shoradoshlar:"Lavlagi",gulxayridoshlar:"G‘o‘za",burchoqdoshlar:"No‘xat",
+const SPECIMEN = {ranodoshlar:"Olma novdasi",karamdoshlar:"Xantal",shoradoshlar:"Lavlagi",gulxayridoshlar:"G‘o‘za",burchoqdoshlar:"No‘xat",
   ituzumdoshlar:"Pomidor",tokdoshlar:"Tok",qovoqdoshlar:"Oshqovoq",qoqiotdoshlar:"Kungaboqar",loladoshlar:"Lola",piyozdoshlar:"Piyoz",bugdoydoshlar:"Bug‘doy"};
 
 const $ = (s, r = document) => r.querySelector(s);
@@ -36,7 +37,7 @@ document.body.appendChild(ui);
 const canvas = $("canvas", ui);
 
 let renderer, scene, camera, controls, current, home = null, raf = 0, lastFocus = null, loadId = 0;
-const loader = new GLTFLoader(), cache = new Map();
+const loader = new GLTFLoader().setMeshoptDecoder(MeshoptDecoder), cache = new Map();
 
 function init() {
   renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, preserveDrawingBuffer: true });
@@ -46,9 +47,10 @@ function init() {
   renderer.toneMappingExposure = 1.05;
   scene = new THREE.Scene();
   camera = new THREE.PerspectiveCamera(35, 1, 0.01, 100);
-  scene.add(new THREE.HemisphereLight(0xfff8e8, 0x6b7a55, 1.25));
+  scene.add(new THREE.HemisphereLight(0xfff8e8, 0xa3ab86, 1.35));
   const sun = new THREE.DirectionalLight(0xffffff, 2.2); sun.position.set(3, 5, 4); scene.add(sun);
   const rim = new THREE.DirectionalLight(0xdfe9ff, 0.8); rim.position.set(-4, 2, -3); scene.add(rim);
+  const fill = new THREE.DirectionalLight(0xfffaf0, 0.9); fill.position.set(0, 0.3, 1); camera.add(fill); scene.add(camera);
   // yumshoq soya diski
   const c = document.createElement("canvas"); c.width = c.height = 128;
   const g = c.getContext("2d"), grd = g.createRadialGradient(64, 64, 4, 64, 64, 64);

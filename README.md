@@ -15,6 +15,9 @@ Oila nomi · Oilaga kiruvchi o‘simliklar · Guli, bargi va to‘pguli (+ mevas
 - Chop etishga mos
 - Har bir oila uchun 3D model: barmoq bilan 360° aylantirish, yaqinlashtirish, tugmalar bilan boshqarish (`models/`, three.js `vendor/` ichida)
 
+## 3D modellar
+12 ta o‘simlik `tools/plants.js` da kod bilan qurilgan: barglar tomirli va qirrali, gullar haqiqiy gulbarg soni bilan, mevalar (olma, pomidor, uzum, qovoq, dukkak, ko‘sak) va ildizlar bor. Qayta yasash: serverda `tools/build.html` ni oching. Modellar meshopt bilan siqilgan (jami ~3 MB).
+
 ## Ma’lumotlar
 Barcha ma’lumotlar `data/families.js` faylida. Manba — darslikning 112–138-betlari. Darslikda yo‘q qo‘shimcha ma’lumot alohida belgilangan.
 
@@ -23,3 +26,4 @@ Barcha ma’lumotlar `data/families.js` faylida. Manba — darslikning 112–138
 - [x] 2-bosqich — botanik dizayn
 - [x] 3-bosqich — 3D modellar (12 ta GLB) va 360° ko‘rish
 - [x] 4-bosqich — PWA: telefonga o‘rnatish, internetsiz ishlash (ochilgan 3D modellar ham saqlanadi)
+- [x] 5-bosqich — 12 ta modelni tabiiyroq qilib qayta yasash

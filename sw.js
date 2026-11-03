@@ -1,6 +1,6 @@
-const CORE = "atlas-core-v1", RUNTIME = "atlas-runtime-v1";
+const CORE = "atlas-core-v2", RUNTIME = "atlas-runtime-v2";
 const ASSETS = ["./","index.html","css/app.css","js/app.js","js/viewer.js","data/families.js","manifest.webmanifest",
-  "vendor/three.module.min.js","vendor/addons/controls/OrbitControls.js","vendor/addons/loaders/GLTFLoader.js","vendor/addons/utils/BufferGeometryUtils.js",
+  "vendor/three.module.min.js","vendor/addons/controls/OrbitControls.js","vendor/addons/loaders/GLTFLoader.js","vendor/addons/utils/BufferGeometryUtils.js","vendor/addons/libs/meshopt_decoder.module.js",
   "icons/icon-192.png",  "thumbs/bugdoydoshlar.webp",  "thumbs/burchoqdoshlar.webp",  "thumbs/gulxayridoshlar.webp",  "thumbs/ituzumdoshlar.webp",  "thumbs/karamdoshlar.webp",  "thumbs/loladoshlar.webp",  "thumbs/piyozdoshlar.webp",  "thumbs/qoqiotdoshlar.webp",  "thumbs/qovoqdoshlar.webp",  "thumbs/ranodoshlar.webp",  "thumbs/shoradoshlar.webp",  "thumbs/tokdoshlar.webp",];
 self.addEventListener("install", e => { e.waitUntil(caches.open(CORE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting())); });
 self.addEventListener("activate", e => { e.waitUntil(caches.keys().then(ks => Promise.all(ks.filter(k => k !== CORE && k !== RUNTIME).map(k => caches.delete(k)))).then(() => self.clients.claim())); });
