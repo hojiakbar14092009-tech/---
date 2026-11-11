@@ -4,7 +4,7 @@ window.FAMILIES = [
   {
     id: "ranodoshlar", par: "47-§", nom: "Ra’nodoshlar", sinf: "Ikki urug‘pallali", sahifa: 112,
     belgi: "5 a’zoli to‘g‘ri gul, changchilari ko‘p",
-    osimliklar: "Na’matak (ra’no), olma, nok, o‘rik, shaftoli, olcha, olxo‘ri, gilos, bodom, qulupnay, malina, tobulg‘i, kamxastak, zilos, maymunjon",
+    osimliklar: "Na’matak (ra’no), olma, nok, o‘rik, shaftoli, olcha, olxo‘ri, gilos, bodom, qulupnay, malina, tobulg‘i, kamxastak, maymunjon",
     gul: "Ikki jinsli, to‘g‘ri, odatda 5 a’zoli. Gultojbarglari 5 ta, bir-biriga qo‘shilmagan. Changchilari ko‘p, urug‘chisi bitta yoki ko‘p. Hasharotlar changlatadi.",
     barg: "Yonbargchali; oddiy, uch bargchali yoki toq patsimon murakkab. Poyada navbat bilan joylashadi.",
     topgul: "Gullari yakka yoki shingil, qalqon, soyabon shaklidagi to‘pgulda.",

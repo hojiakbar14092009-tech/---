@@ -1,8 +1,9 @@
 // Avtomatik yaratilgan (tools/make-sw.py). Qo'lda o'zgartirmang.
-const VERSION = "f12545c3ab", CACHE = "atlas-" + VERSION;
+const VERSION = "1da2dbc558", CACHE = "atlas-" + VERSION;
 const CORE = [
  "./",
  "css/app.css",
+ "data/bilim.js",
  "data/families.js",
  "fonts/fraunces-latin-500-italic.woff2",
  "fonts/fraunces-latin-500-normal.woff2",
@@ -25,6 +26,7 @@ const CORE = [
  "icons/maskable-512.png",
  "index.html",
  "js/app.js",
+ "js/info.js",
  "js/viewer.js",
  "manifest.webmanifest",
  "thumbs/bugdoydoshlar.webp",
