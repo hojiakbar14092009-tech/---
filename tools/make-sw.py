@@ -36,12 +36,22 @@ self.addEventListener("message", (e) => {{ if (e.data === "status") e.source.pos
 self.addEventListener("fetch", (e) => {{
   const req = e.request;
   if (req.method !== "GET" || new URL(req.url).origin !== location.origin) return;
+  const isModel = req.url.split("?")[0].endsWith(".glb");
   e.respondWith((async () => {{
     const c = await caches.open(CACHE);
     const hit = await c.match(req, {{ ignoreSearch: true }});
-    if (hit) return hit;                                    // avval kesh: internetsiz ham, sekin internetda ham tez
-    try {{ const r = await fetch(req); if (r.ok) c.put(req, r.clone()); return r; }}
-    catch (err) {{ if (req.mode === "navigate") return (await c.match("index.html")) || Response.error(); return Response.error(); }}
+    if (isModel && hit) return hit;                         // katta modellar: avval kesh
+    // Boshqa fayllar: avval yangisini olishga urinamiz (3 s), bo'lmasa kesh -> yangilanish darrov ko'rinadi, internetsiz ham ishlaydi
+    try {{
+      const ctl = new AbortController(); const t = setTimeout(() => ctl.abort(), hit ? 3000 : 15000);
+      const r = await fetch(req, {{ cache: "no-cache", signal: ctl.signal }}); clearTimeout(t);
+      if (r.ok) c.put(req, r.clone());
+      return r.ok || !hit ? r : hit;
+    }} catch (err) {{
+      if (hit) return hit;
+      if (req.mode === "navigate") return (await c.match("index.html")) || Response.error();
+      return Response.error();
+    }}
   }})());
 }});
 ''')

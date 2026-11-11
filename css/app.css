@@ -185,3 +185,10 @@ html.v3d-open,html.v3d-open body{overflow:hidden}
 @media (min-width:700px){.inf{align-items:center}.inf-sheet{border-radius:22px}}
 @media (prefers-reduced-motion:reduce){.inf-sheet{animation:none}}
 @media print{.inf,.infos{display:none!important}}
+
+.upd{font:inherit;font-size:.88rem;cursor:pointer;min-height:44px;color:var(--green);border-color:#c9dcc4;background:var(--green2)}
+.upd:disabled{opacity:.7}
+.newv{position:fixed;left:50%;bottom:calc(14px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:60;display:flex;align-items:center;gap:12px;background:#1E4630;color:#fff;padding:8px 8px 8px 16px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.25);font-size:.9rem}
+.newv[hidden]{display:none}
+.newv button{min-height:44px;padding:0 18px;border:0;border-radius:999px;background:#F3D98E;color:#1E4630;font:600 .9rem inherit;font-family:inherit;cursor:pointer}
+.upd[hidden]{display:none}

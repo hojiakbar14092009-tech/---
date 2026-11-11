@@ -102,7 +102,7 @@
     <p class="eyebrow">6-sinf · Botanika · 47–58-§</p>
     <h1>O‘simlik oilalari <em>atlasi</em></h1>
     <p class="lead">Darslikdagi 12 ta oila bitta jadvalda: guli, bargi, mevasi, qayerda o‘sishi, o‘xshash va farqli tomonlari, tabobatdagi o‘rni.</p>
-    <div class="stats"><span class="stat"><b>12</b>oila</span><span class="stat"><b>10</b>ikki urug‘pallali</span><span class="stat"><b>2</b>bir urug‘pallali</span><span class="stat off" id="offl" role="status" aria-live="polite"></span></div>
+    <div class="stats"><span class="stat"><b>12</b>oila</span><span class="stat"><b>10</b>ikki urug‘pallali</span><span class="stat"><b>2</b>bir urug‘pallali</span><span class="stat off" id="offl" role="status" aria-live="polite"></span><button class="stat upd" id="upd" type="button">↻ Yangilash</button></div>
   </div>
 </section>
 
@@ -133,6 +133,7 @@
   </section>
 </main>
 
+<div id="newv" class="newv" hidden><span>Yangi versiya tayyor</span><button type="button" id="newvb">Yangilash</button></div>
 <div id="net" class="netbar" role="status" hidden>Internetsiz rejim</div>
 <footer class="wrap">
   <svg viewBox="0 0 120 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 12h112"/><path d="M60 12c-6-8-14-9-20-6 6 6 14 7 20 6Zm0 0c6-8 14-9 20-6-6 6-14 7-20 6Z" fill="currentColor" opacity=".35"/></svg>
@@ -151,10 +152,26 @@
   function show(t, ok){ el.textContent = t; el.className = "stat " + (ok ? "ok" : "off"); }
   var tm; function net(){ var off = navigator.onLine === false; document.documentElement.classList.toggle("is-offline", off); clearTimeout(tm); if(off){ bar.hidden=false; bar.classList.remove("fade"); tm=setTimeout(function(){ bar.classList.add("fade"); setTimeout(function(){ bar.hidden=true; },450); },2500); } else bar.hidden=true; }
   addEventListener("online", net); addEventListener("offline", net); net();
+  if(window.IS_APP||!("serviceWorker" in navigator)||!location.protocol.startsWith("http")) document.getElementById("upd").hidden=true;
   if(window.IS_APP){ show("✓ Ilova: internetsiz ishlaydi", true); return; }   // ilova ichida hamma fayl bor
   if(!("serviceWorker" in navigator) || !location.protocol.startsWith("http")){ return; }
   show("Internetsiz ishlash: tayyorlanmoqda…", false);
-  addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").catch(function(){ show("Internetsiz ishlash mavjud emas", false); }); });
+  var reg=null, hadCtl=!!navigator.serviceWorker.controller, reloading=false, nv=document.getElementById("newv");
+  function reload(){ if(reloading) return; reloading=true; location.reload(); }
+  navigator.serviceWorker.addEventListener("controllerchange", function(){ if(hadCtl) nv.hidden=false; hadCtl=true; });
+  document.getElementById("newvb").addEventListener("click", reload);
+  function upd(){ if(reg) reg.update().catch(function(){}); }
+  addEventListener("load", function(){ navigator.serviceWorker.register("sw.js").then(function(r){ reg=r; upd(); }).catch(function(){ show("Internetsiz ishlash mavjud emas", false); }); });
+  document.addEventListener("visibilitychange", function(){ if(!document.hidden) upd(); });
+  addEventListener("focus", upd); setInterval(upd, 600000);
+  var ub=document.getElementById("upd");
+  ub.addEventListener("click", function(){
+    if(navigator.onLine===false){ ub.textContent="Internet yo‘q"; setTimeout(function(){ ub.textContent="↻ Yangilash"; },2000); return; }
+    ub.textContent="Tekshirilmoqda…"; ub.disabled=true;
+    var done=function(t){ ub.textContent=t; setTimeout(function(){ ub.textContent="↻ Yangilash"; ub.disabled=false; },2200); };
+    var changed=false; navigator.serviceWorker.addEventListener("controllerchange", function(){ changed=true; });
+    (reg?Promise.resolve(reg):navigator.serviceWorker.getRegistration().then(function(r){ return r||navigator.serviceWorker.register("sw.js"); })).then(function(r){ reg=r; return r.update(); }).then(function(){ setTimeout(function(){ changed ? reload() : done("✓ Eng so‘nggi versiya"); }, 2500); }).catch(function(){ done("Tekshirib bo‘lmadi"); });
+  });
   function check(){
     caches.keys().then(function(ks){
       var k = ks.filter(function(x){ return x.indexOf("atlas-") === 0; })[0]; if(!k) return setTimeout(check, 1500);
